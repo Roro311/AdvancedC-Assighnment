@@ -63,6 +63,16 @@
             return result;
         }
 
+        // Task 03.3: Filter Products
+        // Predicate<Product> returns true or false for each product.
+        static List<Product> FilterProducts(
+            List<Product> products,
+            Predicate<Product> condition)
+        {
+            return products.FindAll(condition);
+        }
+
+
         static void Main(string[] args)
         {
 
@@ -186,6 +196,33 @@
                 Console.WriteLine($"{catalog[i].Name}: {labels[i]}");
             }
             #endregion
-        }
+
+            #region Task 03.3: Filter Products
+            // ==============================
+            // Task 03.3: Filter Products
+            // ==============================
+
+            Console.WriteLine("\n========== Task 03.3: Filter Products ==========");
+
+            // Scenario 5: Low-Stock Alert
+            Console.WriteLine("\n5. Low-Stock Alerts:");
+
+            List<Product> lowStock = FilterProducts(
+                catalog,
+                p => p.Stock < 20
+            );
+
+            foreach (Product p in lowStock)
+            {
+                Console.WriteLine(
+                    $"[LOW STOCK] {p.Name}: only {p.Stock} left!"
+                );
+            #endregion
+            }
     }
+           
+
+
+    }
+    
 }
