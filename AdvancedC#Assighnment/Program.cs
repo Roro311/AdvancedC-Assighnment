@@ -47,6 +47,21 @@
             }
         }
 
+        // Task 03.2: Transform Products
+        // Func<Product, T> transforms each product into a value of type T.
+        static List<T> TransformProducts<T>(
+            List<Product> products,
+            Func<Product, T> transform)
+        {
+            List<T> result = new List<T>();
+
+            foreach (Product product in products)
+            {
+                result.Add(transform(product));
+            }
+
+            return result;
+        }
 
         static void Main(string[] args)
         {
@@ -138,6 +153,39 @@
             });
             #endregion
 
+            #region Task 03.2: Transform Products
+            // ==============================
+            // Task 03.2: Transform Products
+            // ==============================
+
+            Console.WriteLine("\n========== Task 03.2: Transform Products ==========");
+
+            // Scenario 3: Summary List
+            Console.WriteLine("\n3. Summary List:");
+
+            List<string> summary = TransformProducts(
+                catalog,
+                p => $"{p.Name} (${p.Price})"
+            );
+
+            foreach (string item in summary)
+            {
+                Console.WriteLine(item);
+            }
+
+            // Scenario 4: Price Label
+            Console.WriteLine("\n4. Price Labels:");
+
+            List<string> labels = TransformProducts(
+                catalog,
+                p => p.Price > 100 ? "Expensive!" : "Affordable"
+            );
+
+            for (int i = 0; i < catalog.Count; i++)
+            {
+                Console.WriteLine($"{catalog[i].Name}: {labels[i]}");
+            }
+            #endregion
         }
     }
 }
