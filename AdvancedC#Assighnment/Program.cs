@@ -34,6 +34,20 @@
             }
             return result;
         }
+
+        // Task 03.1: Print Reports
+        // Action<Product> performs an action on each product without returning a value.
+        static void PrintReport(
+            List<Product> products,
+            Action<Product> action)
+        {
+            foreach (Product product in products)
+            {
+                action(product);
+            }
+        }
+
+
         static void Main(string[] args)
         {
 
@@ -57,7 +71,73 @@
                 Console.WriteLine(p.Name);
             }
 
+            // Search 2: Products cheaper than $50
+            Console.WriteLine("\n2. Products Cheaper Than $50:");
+
+            List<Product> cheapProducts = SearchProducts(
+                catalog,
+                p => p.Price < 50
+            );
+
+            foreach (Product p in cheapProducts)
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price}");
+            }
+
+            // Search 3: Products that are in stock
+            Console.WriteLine("\n3. Products In Stock:");
+
+            List<Product> inStock = SearchProducts(
+                catalog,
+                p => p.Stock > 0
+            );
+
+            foreach (Product p in inStock)
+            {
+                Console.WriteLine(p.Name);
+            }
+
+            // Search 4: Clothing products under $100
+            Console.WriteLine("\n4. Clothing Products Under $100:");
+
+            List<Product> clothing = SearchProducts(
+                catalog,
+                p => p.Category == "Clothing" && p.Price < 100
+            );
+
+            foreach (Product p in clothing)
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price}");
+            }
+
             #endregion
+
+            #region Task 03.1: Print Reports
+            // ==============================
+            // Task 03.1: Print Reports
+            // ==============================
+
+            Console.WriteLine("\n========== Task 03.1: Print Reports ==========");
+
+            // Scenario 1: Short Report
+            Console.WriteLine("\n1. Short Report:");
+
+            PrintReport(catalog, p =>
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price}");
+            });
+
+            // Scenario 2: Detailed Report
+            Console.WriteLine("\n2. Detailed Report:");
+
+            PrintReport(catalog, p =>
+            {
+                Console.WriteLine(
+                    $"[{p.Category}] {p.Name} | Price: ${p.Price} | Stock: {p.Stock}"
+                );
+            });
+            #endregion
+
         }
-        }
+    }
 }
