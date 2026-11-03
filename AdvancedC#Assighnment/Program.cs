@@ -174,6 +174,70 @@
             //    Console.Write(number + " ");
             //}
             #endregion
+
+            #region Exercise 4: Unique Email Validator
+            // 1. Create HashSet with case-insensitive comparer
+            HashSet<string> emails =
+                new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // 2. Add emails
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+
+            // 3. Print Count
+            Console.WriteLine("Email Count: " + emails.Count);
+
+            // 4. Create Set A and Set B
+            HashSet<int> setA = new HashSet<int>()
+{
+    1, 2, 3, 4, 5
+};
+
+            HashSet<int> setB = new HashSet<int>()
+{
+    4, 5, 6, 7, 8
+};
+
+            // 5. UnionWith
+            HashSet<int> union = new HashSet<int>(setA);
+            union.UnionWith(setB);
+
+            Console.WriteLine("\nUnion:");
+            foreach (int num in union)
+            {
+                Console.Write(num + " ");
+            }
+
+            // IntersectWith
+            HashSet<int> intersection = new HashSet<int>(setA);
+            intersection.IntersectWith(setB);
+
+            Console.WriteLine("\nIntersection:");
+            foreach (int num in intersection)
+            {
+                Console.Write(num + " ");
+            }
+
+            // ExceptWith
+            HashSet<int> difference = new HashSet<int>(setA);
+            difference.ExceptWith(setB);
+
+            Console.WriteLine("\nDifference:");
+            foreach (int num in difference)
+            {
+                Console.Write(num + " ");
+            }
+
+            // 6. IsSubsetOf
+            HashSet<int> smallSet = new HashSet<int>()
+            {
+                1, 2
+            };
+
+            Console.WriteLine("\nIs Subset? " + smallSet.IsSubsetOf(setA));
+            #endregion
         }
     }
 }
