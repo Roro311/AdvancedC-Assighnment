@@ -176,114 +176,165 @@
             #endregion
 
             #region Exercise 4: Unique Email Validator
-            // 1. Create HashSet with case-insensitive comparer
-            HashSet<string> emails =
-                new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            //            // 1. Create HashSet with case-insensitive comparer
+            //            HashSet<string> emails =
+            //                new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            // 2. Add emails
-            emails.Add("ahmed@test.com");
-            emails.Add("AHMED@test.com");
-            emails.Add("sara@test.com");
-            emails.Add("Sara@Test.Com");
+            //            // 2. Add emails
+            //            emails.Add("ahmed@test.com");
+            //            emails.Add("AHMED@test.com");
+            //            emails.Add("sara@test.com");
+            //            emails.Add("Sara@Test.Com");
 
-            // 3. Print Count
-            Console.WriteLine("Email Count: " + emails.Count);
+            //            // 3. Print Count
+            //            Console.WriteLine("Email Count: " + emails.Count);
 
-            // 4. Create Set A and Set B
-            HashSet<int> setA = new HashSet<int>()
-{
-    1, 2, 3, 4, 5
-};
+            //            // 4. Create Set A and Set B
+            //            HashSet<int> setA = new HashSet<int>()
+            //{
+            //    1, 2, 3, 4, 5
+            //};
 
-            HashSet<int> setB = new HashSet<int>()
-{
-    4, 5, 6, 7, 8
-};
+            //            HashSet<int> setB = new HashSet<int>()
+            //{
+            //    4, 5, 6, 7, 8
+            //};
 
-            // 5. UnionWith
-            HashSet<int> union = new HashSet<int>(setA);
-            union.UnionWith(setB);
+            //            // 5. UnionWith
+            //            HashSet<int> union = new HashSet<int>(setA);
+            //            union.UnionWith(setB);
 
-            Console.WriteLine("\nUnion:");
-            foreach (int num in union)
-            {
-                Console.Write(num + " ");
-            }
+            //            Console.WriteLine("\nUnion:");
+            //            foreach (int num in union)
+            //            {
+            //                Console.Write(num + " ");
+            //            }
 
-            // IntersectWith
-            HashSet<int> intersection = new HashSet<int>(setA);
-            intersection.IntersectWith(setB);
+            //            // IntersectWith
+            //            HashSet<int> intersection = new HashSet<int>(setA);
+            //            intersection.IntersectWith(setB);
 
-            Console.WriteLine("\nIntersection:");
-            foreach (int num in intersection)
-            {
-                Console.Write(num + " ");
-            }
+            //            Console.WriteLine("\nIntersection:");
+            //            foreach (int num in intersection)
+            //            {
+            //                Console.Write(num + " ");
+            //            }
 
-            // ExceptWith
-            HashSet<int> difference = new HashSet<int>(setA);
-            difference.ExceptWith(setB);
+            //            // ExceptWith
+            //            HashSet<int> difference = new HashSet<int>(setA);
+            //            difference.ExceptWith(setB);
 
-            Console.WriteLine("\nDifference:");
-            foreach (int num in difference)
-            {
-                Console.Write(num + " ");
-            }
+            //            Console.WriteLine("\nDifference:");
+            //            foreach (int num in difference)
+            //            {
+            //                Console.Write(num + " ");
+            //            }
 
-            // 6. IsSubsetOf
-            HashSet<int> smallSet = new HashSet<int>()
-            {
-                1, 2
-            };
+            //            // 6. IsSubsetOf
+            //            HashSet<int> smallSet = new HashSet<int>()
+            //            {
+            //                1, 2
+            //            };
 
-            Console.WriteLine("\nIs Subset? " + smallSet.IsSubsetOf(setA));
+            //            Console.WriteLine("\nIs Subset? " + smallSet.IsSubsetOf(setA));
             #endregion
 
             #region Exercise 5: Print Queue Simulator
-            Queue<string> printerQueue = new Queue<string>();
+            //Queue<string> printerQueue = new Queue<string>();
 
-            // 1. Enqueue 5 documents
-            printerQueue.Enqueue("Report.pdf");
-            printerQueue.Enqueue("Invoice.pdf");
-            printerQueue.Enqueue("Letter.docx");
-            printerQueue.Enqueue("Resume.pdf");
-            printerQueue.Enqueue("Photo.jpg");
+            //// 1. Enqueue 5 documents
+            //printerQueue.Enqueue("Report.pdf");
+            //printerQueue.Enqueue("Invoice.pdf");
+            //printerQueue.Enqueue("Letter.docx");
+            //printerQueue.Enqueue("Resume.pdf");
+            //printerQueue.Enqueue("Photo.jpg");
 
-            // Print queue contents
-            Console.WriteLine("Printer Queue:");
+            //// Print queue contents
+            //Console.WriteLine("Printer Queue:");
 
-            foreach (string document in printerQueue)
+            //foreach (string document in printerQueue)
+            //{
+            //    Console.WriteLine(document);
+            //}
+
+            //Console.WriteLine("Count: " + printerQueue.Count);
+
+            //// 2. Peek
+            //Console.WriteLine("\nNext Document: " + printerQueue.Peek());
+
+            //// 3. Process queue using Dequeue
+            //Console.WriteLine("\nPrinting Documents:");
+
+            //while (printerQueue.Count > 0)
+            //{
+            //    string document = printerQueue.Dequeue();
+
+            //    Console.WriteLine("Printing: " + document);
+            //}
+
+            //// 4. TryDequeue on empty queue
+            //bool result = printerQueue.TryDequeue(out string nextDocument);
+
+            //Console.WriteLine("\nTryDequeue Result: " + result);
+
+            //if (result)
+            //{
+            //    Console.WriteLine(nextDocument);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Queue is Empty");
+            //}
+            #endregion
+
+            #region Exercise 6: Browser History (Undo)
+            Stack<string> browserHistory = new Stack<string>();
+
+            // 1. Push 5 URLs
+            browserHistory.Push("google.com");
+            browserHistory.Push("github.com");
+            browserHistory.Push("stackoverflow.com");
+            browserHistory.Push("youtube.com");
+            browserHistory.Push("claude.ai");
+
+            // 2. Peek current page
+            Console.WriteLine("Current Page: " + browserHistory.Peek());
+
+            // 3. Press Back 3 times using Pop
+            Console.WriteLine("\nGoing Back:");
+
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(document);
+                string page = browserHistory.Pop();
+
+                Console.WriteLine("Leaving: " + page);
             }
 
-            Console.WriteLine("Count: " + printerQueue.Count);
+            // 4. Print current page
+            Console.WriteLine("\nCurrent Page After Back:");
 
-            // 2. Peek
-            Console.WriteLine("\nNext Document: " + printerQueue.Peek());
-
-            // 3. Process queue using Dequeue
-            Console.WriteLine("\nPrinting Documents:");
-
-            while (printerQueue.Count > 0)
+            if (browserHistory.Count > 0)
             {
-                string document = printerQueue.Dequeue();
-
-                Console.WriteLine("Printing: " + document);
+                Console.WriteLine(browserHistory.Peek());
             }
 
-            // 4. TryDequeue on empty queue
-            bool result = printerQueue.TryDequeue(out string nextDocument);
+            // 5. TryPop on empty stack
+            while (browserHistory.Count > 0)
+            {
+                browserHistory.Pop();
+            }
 
-            Console.WriteLine("\nTryDequeue Result: " + result);
+            bool result = browserHistory.TryPop(out string lastPage);
+
+            Console.WriteLine("\nTryPop Result: " + result);
 
             if (result)
             {
-                Console.WriteLine(nextDocument);
+                Console.WriteLine(lastPage);
             }
             else
             {
-                Console.WriteLine("Queue is Empty");
+                Console.WriteLine("Stack is Empty");
             }
             #endregion
         }
