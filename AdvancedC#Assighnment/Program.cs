@@ -76,49 +76,103 @@
             #endregion
 
             #region Exercise 2:  Leaderboard
-            SortedList<int, string> leaderboard = new SortedList<int, string>();
+            //SortedList<int, string> leaderboard = new SortedList<int, string>();
 
-            // 1. Add players
-            leaderboard.Add(500, "Ahmed");
-            leaderboard.Add(200, "Sara");
-            leaderboard.Add(800, "Ali");
-            leaderboard.Add(350, "Mona");
+            //// 1. Add players
+            //leaderboard.Add(500, "Ahmed");
+            //leaderboard.Add(200, "Sara");
+            //leaderboard.Add(800, "Ali");
+            //leaderboard.Add(350, "Mona");
 
-            // 2. Print all entries
-            Console.WriteLine("Leaderboard:");
+            //// 2. Print all entries
+            //Console.WriteLine("Leaderboard:");
 
-            foreach (var player in leaderboard)
-            {
-                Console.WriteLine(player.Key + " = " + player.Value);
-            }
+            //foreach (var player in leaderboard)
+            //{
+            //    Console.WriteLine(player.Key + " = " + player.Value);
+            //}
 
-            // 3. First Key and First Value
-            Console.WriteLine("\nFirst Key: " + leaderboard.Keys[0]);
-            Console.WriteLine("First Value: " + leaderboard.Values[0]);
+            //// 3. First Key and First Value
+            //Console.WriteLine("\nFirst Key: " + leaderboard.Keys[0]);
+            //Console.WriteLine("First Value: " + leaderboard.Values[0]);
 
-            // 4. Check if score 500 exists
-            Console.WriteLine("\nScore 500 Exists? " +
-                leaderboard.ContainsKey(500));
+            //// 4. Check if score 500 exists
+            //Console.WriteLine("\nScore 500 Exists? " +
+            //    leaderboard.ContainsKey(500));
 
-            // 5. Safely get player with score 999
-            if (leaderboard.TryGetValue(999, out string playerName))
-            {
-                Console.WriteLine("Player: " + playerName);
-            }
-            else
-            {
-                Console.WriteLine("Player Not Found");
-            }
+            //// 5. Safely get player with score 999
+            //if (leaderboard.TryGetValue(999, out string playerName))
+            //{
+            //    Console.WriteLine("Player: " + playerName);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Player Not Found");
+            //}
 
-            // 6. Remove score 200
-            leaderboard.Remove(200);
+            //// 6. Remove score 200
+            //leaderboard.Remove(200);
 
-            Console.WriteLine("\nUpdated Leaderboard:");
+            //Console.WriteLine("\nUpdated Leaderboard:");
 
-            foreach (var player in leaderboard)
-            {
-                Console.WriteLine(player.Key + " = " + player.Value);
-            }
+            //foreach (var player in leaderboard)
+            //{
+            //    Console.WriteLine(player.Key + " = " + player.Value);
+            //}
+            #endregion
+
+            #region Exercise 3: Phone Book
+            //Dictionary<string, string> phoneBook = new Dictionary<string, string>();
+
+            //// 1. Add 4 contacts
+            //phoneBook.Add("Ahmed", "01011111111");
+            //phoneBook.Add("Sara", "01022222222");
+            //phoneBook.Add("Mona", "01033333333");
+            //phoneBook.Add("Ali", "01044444444");
+
+            //// 2. Add new contact using [] syntax
+            //phoneBook["Omar"] = "01055555555";
+
+            //// 3. Try adding duplicate using Add()
+            //try
+            //{
+            //    phoneBook.Add("Ahmed", "01099999999");
+            //}
+            //catch (ArgumentException ex)
+            //{
+            //    Console.WriteLine("Error: " + ex.Message);
+            //}
+
+            //// 4. Try adding duplicate using TryAdd()
+            //bool added = phoneBook.TryAdd("Ahmed", "01088888888");
+
+            //Console.WriteLine("Added Successfully? " + added);
+
+            //// 5. Search for contact that doesn't exist
+            //bool exists = phoneBook.ContainsKey("Youssef");
+
+            //Console.WriteLine("Youssef Exists? " + exists);
+
+            //// 6. Get contact with fallback
+            //string phone = phoneBook.GetValueOrDefault("Youssef", "Not Found");
+
+            //Console.WriteLine("Phone: " + phone);
+
+            //// 7. Print all Keys
+            //Console.WriteLine("\nContact Names:");
+
+            //foreach (string name in phoneBook.Keys)
+            //{
+            //    Console.Write(name + " ");
+            //}
+
+            //// Print all Values
+            //Console.WriteLine("\nPhone Numbers:");
+
+            //foreach (string number in phoneBook.Values)
+            //{
+            //    Console.Write(number + " ");
+            //}
             #endregion
         }
     }
